@@ -4,5 +4,5 @@ async_batch_compress: true
 async_batch_threshold: 1024
 
 # example=
-#   disabled_protocols: [448, 440]
+#   disabled_protocols: [594, 618]
 disabled_protocols: []
