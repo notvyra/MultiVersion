@@ -1,6 +1,3 @@
-# Discontinued
-This plugin is discontinued.
-Alternative:
+# MultiVersion Recontinued
 
-- https://github.com/NetherGamesMC/PocketMine-MP
-- https://github.com/VenityNetwork/PocketMine-MP
+This is a recontinued version of the MultiVersion plugin by AkmalFairuz
