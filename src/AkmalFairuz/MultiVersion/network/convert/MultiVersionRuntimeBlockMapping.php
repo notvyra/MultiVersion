@@ -26,11 +26,9 @@ class MultiVersionRuntimeBlockMapping{
     private static $bedrockKnownStates = [];
 
     const PROTOCOL = [
-        ProtocolConstants::BEDROCK_1_16_220 => "_1_16_220",
-        ProtocolConstants::BEDROCK_1_17_0 => "_1_17_0",
-        ProtocolConstants::BEDROCK_1_17_10 => "_1_17_10",
-        ProtocolConstants::BEDROCK_1_17_30 => "_1_17_30",
-        ProtocolConstants::BEDROCK_1_17_40 => "_1_17_40"
+        ProtocolConstants::BEDROCK_1_20_0 => "_1_20_0",
+        ProtocolConstants::BEDROCK_1_20_10 => "_1_20_10",
+        ProtocolConstants::BEDROCK_1_20_30 => "_1_20_30",
     ];
 
     private function __construct(){
@@ -63,13 +61,13 @@ class MultiVersionRuntimeBlockMapping{
         /** @var R12ToCurrentBlockMapEntry[] $legacyStateMap */
         $legacyStateMap = [];
         switch($protocol) {
-            case ProtocolConstants::BEDROCK_1_17_0:
-            case ProtocolConstants::BEDROCK_1_17_10:
-                $suffix = self::PROTOCOL[ProtocolConstants::BEDROCK_1_17_10];
+            case ProtocolConstants::BEDROCK_1_20_10:
+            case ProtocolConstants::BEDROCK_1_20_30:
+                $suffix = self::PROTOCOL[ProtocolConstants::BEDROCK_1_20_10];
                 break;
-            case ProtocolConstants::BEDROCK_1_17_40:
-            case ProtocolConstants::BEDROCK_1_17_30:
-                $suffix = self::PROTOCOL[ProtocolConstants::BEDROCK_1_17_30];
+            case ProtocolConstants::BEDROCK_1_20_10:
+            case ProtocolConstants::BEDROCK_1_20_30:
+                $suffix = self::PROTOCOL[ProtocolConstants::BEDROCK_1_20_30];
                 break;
             default:
                 $suffix = self::PROTOCOL[$protocol];
@@ -134,8 +132,8 @@ class MultiVersionRuntimeBlockMapping{
     }
 
     public static function toStaticRuntimeId(int $id, int $meta = 0, int $protocol = ProtocolInfo::CURRENT_PROTOCOL) : int{
-        if($protocol === ProtocolConstants::BEDROCK_1_18_0) {
-            $protocol = ProtocolConstants::BEDROCK_1_17_40;
+        if($protocol === ProtocolConstants::BEDROCK_1_20_30) {
+            $protocol = ProtocolConstants::BEDROCK_1_20_10;
         }
         self::lazyInit();
         /*
@@ -150,8 +148,8 @@ class MultiVersionRuntimeBlockMapping{
      * @return int[] [id, meta]
      */
     public static function fromStaticRuntimeId(int $runtimeId, int $protocol) : array{
-        if($protocol === ProtocolConstants::BEDROCK_1_18_0) {
-            $protocol = ProtocolConstants::BEDROCK_1_17_40;
+        if($protocol === ProtocolConstants::BEDROCK_1_20_30) {
+            $protocol = ProtocolConstants::BEDROCK_1_20_10;
         }
         self::lazyInit();
         $v = self::$runtimeToLegacyMap[$protocol][$runtimeId] ?? null;
