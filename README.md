@@ -2,6 +2,8 @@
 
 This is a recontinued version of the MultiVersion plugin by AkmalFairuz
 
+Dont install this on your server, the chances of it crashing are very high, i will update every Sunday
+
 ## Supported Protocols
 
 - 1.20.0 (589)
